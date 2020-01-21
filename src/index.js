@@ -1,4 +1,4 @@
-const randomNumber = Math.floor(Math.random() * 100) + 1;
+/* const randomNumber = Math.floor(Math.random() * 100) + 1;
 
 const guesses = document.querySelector('.guesses');
 const lastResult = document.querySelector('.lastResult');
@@ -75,4 +75,55 @@ function resetGame() {
   lastResult.style.backgroundColor = 'white';
 
   randomNumber = Math.floor(Math.random() * 100) + 1;
+} */
+
+const food = document.querySelector('.food');
+const changeLang = document.querySelector('.changeLang');
+const sortList = document.querySelector('.sortList');
+const pickRandom = document.querySelector('.pickRandom');
+
+const coursesEn = ["Hamburger, cream sauce and poiled potates",
+                "Goan style fish curry and whole grain rice",
+                "Vegan Chili sin carne and whole grain rice",
+                "Broccoli puree soup, side salad with two napas",
+                "Lunch baguette with BBQ-turkey filling",
+                "Cheese / Chicken / Vege / Halloum burger and french fries"];
+const coursesFi = ["Jauhelihapihvi, ruskeaa kermakastiketta ja keitettyä perunaa",
+                "Goalaista kalacurrya ja täysjyväriisiä",
+                "vegaani Chili sin carne ja täysjyväriisi",
+                "Parsakeittoa,lisäkesalaatti kahdella napaksella",
+                "Lunch baguette with BBQ-turkey filling",
+                "Juusto / Kana / Kasvis / Halloumi burgeri ja ranskalaiset"];
+
+let a = 0;
+food.textContent = coursesFi;
+
+function langChange() {
+  if (a===0) {
+  food.textContent = coursesEn;
+  a = 1;
+  } else if (a===1) {
+    food.textContent = coursesFi;
+    a = 0;
+  }
 }
+
+function listSorting() {
+    food.textContent = coursesEn.sort();
+    food.textContent = coursesFi.sort();
+}
+
+function randomPick() {
+  let randomEn = coursesEn[Math.floor(Math.random() * coursesEn.length)];
+  let randomFi = coursesFi[Math.floor(Math.random() * coursesFi.length)];
+
+  if (a===1) {
+  food.textContent = randomEn;
+  } else if (a===0) {
+    food.textContent = randomFi;
+  }
+}
+
+changeLang.addEventListener('click', langChange);
+sortList.addEventListener('click', listSorting);
+pickRandom.addEventListener('click', randomPick);
