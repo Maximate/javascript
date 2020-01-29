@@ -8,11 +8,24 @@
   </head>
 
   <body>
-    <div class="foodList">
-      <p class="food"></p>
-      <button class="changeLang">Change Lang</button>
-      <button class="sortList">Sort list</button>
-      <button class="pickRandom">Pick random</button>
+    <h1>Number guessing game</h1>
+
+    <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
+
+    <div class="form">
+      <label for="guessField">Enter a guess: </label><input type="text" id="guessField" class="guessField">
+      <input type="submit" value="Submit guess" class="guessSubmit">
+    </div>
+    <div class="form2">
+      <label for="amountField">Enter how many solves you want: </label><input type="number" id="amountField" class="amountField">
+      <input type="submit" value="Automated solve" class="automated">
+    </div>
+
+    <div class="resultParas">
+      <p class="guesses"></p>
+      <p class="lastResult"></p>
+      <p class="lastResult2"></p>
+      <p class="lowOrHi"></p>
     </div>
 
   </body>
